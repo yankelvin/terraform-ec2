@@ -1,7 +1,10 @@
+# Nesse arquivo definimos as configurações do grupo de segurança
+# No caso estamos utilizando o TLS e o SSH, dessa forma garantimos um acesso https
+
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.topicos2020.id
+  vpc_id      = aws_vpc.custom.id
 
   ingress {
     description = "TLS from VPC"
@@ -25,8 +28,8 @@ resource "aws_security_group" "allow_tls" {
 
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
-  description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.topicos2020.id
+  description = "Allow SSH"
+  vpc_id      = aws_vpc.custom.id
 
   ingress {
     description = "TLS from VPC"

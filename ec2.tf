@@ -1,3 +1,7 @@
+# Nesse arquivo estamos configurando as instâncias que subiremos na aws
+# Estamos subindo apenas máquinas no ec2, todas do mesmo tipo e utilizando a mesma segurança de grupo
+# Além disso todas estão apontando para a mesma subrede
+
 resource "aws_instance" "server1" {
   subnet_id       = aws_subnet.topicos2020.id
   ami             = var.ec2ami
